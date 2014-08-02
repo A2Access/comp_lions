@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+  database: comp_lions
+
+test:
+  <<: *default
+  database: comp_lions_test
+
+production:
+  <<: *default
+  database: comp_lions
+
