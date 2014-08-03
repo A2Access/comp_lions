@@ -52,3 +52,8 @@ end
   Classification.create!(name: classification, path: [coffee_shop.path, classification.parameterize.underscore].join("."))
 end
 
+
+["Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"].each do |location|
+  Location.create!(name: location)
+end
+
