@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802235033) do
+ActiveRecord::Schema.define(version: 20140802235438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20140802235033) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comps", force: true do |t|
+    t.integer  "location_id",       null: false
+    t.integer  "classification_id", null: false
+    t.integer  "percentage",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comps", ["classification_id"], name: "index_comps_on_classification_id", using: :btree
+  add_index "comps", ["location_id"], name: "index_comps_on_location_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name"
